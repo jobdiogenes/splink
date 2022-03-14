@@ -1,0 +1,5 @@
+driver = com.mysql.jdbc.Driver
+query  = FROM collectionobject C LEFT JOIN determination D ON ( C.CollectionObjectID = D.CollectionObjectID AND D.IsCurrent = 1 ) LEFT JOIN collectingevent E ON ( E.CollectingEventID = C.CollectingEventID ) LEFT JOIN locality L ON ( L.LocalityID = E.LocalityID ) LEFT JOIN collector M ON ( M.CollectingEventID = E.CollectingEventID AND M.OrderNumber = 0 ) LEFT JOIN agent A ON ( A.AgentID = M.AgentID ) LEFT JOIN agent A2 ON ( A2.AgentID = D.DeterminerID ) LEFT JOIN taxon T ON ( T.TaxonID = D.TaxonID ) LEFT JOIN temp1 AS Geo ON L.geographyID = Geo.geographyID LEFT JOIN temp2 AS Tax ON Tax.taxonID = D.TaxonID
+url    = jdbc:mysql://10.1.0.7:3306/specify
+user   = SpecifyUser
+passwd = nupcol2014
